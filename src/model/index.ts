@@ -2,7 +2,7 @@ import { DataTypes, Model } from "sequelize";
 import db from "../config/database.config";
 
 interface TodoAttributes {
-  id: number;
+  id: string;
   title: string;
   completed: boolean;
 }
