@@ -57,5 +57,18 @@ router.get("/populate", async (req, res) => {
     });
   }
 });
+router.get("/read-all", async (req, res) => {
+  try {
+    const records = await todoInstance.findAll();
+    return res.json({ records, msg: "All records fetched successfully" });
+  } catch (error) {
+    console.error(error);
+    return res.json({
+      msg: "Failed to fetch records",
+      status: 500,
+      route: "/read-all",
+    });
+  }
+});
 
 export default router;
